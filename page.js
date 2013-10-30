@@ -1,16 +1,10 @@
-setInterval(function tick()
+setInterval(function()
 {
 		var arr = document.querySelectorAll("li[data-item-type='tweet']");
 		for( var i=0; i<arr.length; i++ )
 		{
 			var element = arr[i];
-			var media = element.querySelector(".media");
-			if( media )
-			{
-				if( element.classList.contains("open") )
-					element.style.display = "block";
-				else
-					element.style.display = "none";
-			}
+			if( element.querySelector(".media") )
+				element.style.display = element.classList.contains("open") ? "block" : "none";
 		}
 },2000);
