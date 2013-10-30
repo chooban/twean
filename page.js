@@ -4,7 +4,8 @@ setInterval(function()
 		for( var i=0; i<arr.length; i++ )
 		{
 			var element = arr[i];
-			if( element.querySelector(".media") )
-				element.style.display = element.classList.contains("open") ? "block" : "none";
+			var media = element.querySelector(".media");
+			if( media )
+				media.style.display = element.classList.contains("open") ? "block" : "none";
 		}
 },2000);
