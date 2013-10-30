@@ -4,7 +4,7 @@
   "description": "Clean your Twitter timeline by removing inline images.",
   "content_scripts": [
     {
-      "matches": ["https://twitter.com/*"],
+      "matches": ["https://twitter.com/"],
       "js": ["page.js"]
     }
   ],
