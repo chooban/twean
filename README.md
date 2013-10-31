@@ -1,9 +1,11 @@
 twean
 =====
 
-Clean your Twitter timeline by removing now auto-expanded inline images.
+Clean your Twitter timeline by removing auto-expanded inline images from it.
 
 Installation
 ----
 
-Simply load the extracted zip file from Chrome extension menu while carefully activating «developer mode» option.
+* Download the extension from https://github.com/tekool/twean/raw/master/twean.crx.
+* Open Chrome > settings > extensions (or type chrome://extensions/ in the address bar).
+* Drag and drop the extension file into the extensions panel.
