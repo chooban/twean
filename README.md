@@ -14,4 +14,4 @@ Installation
 License
 ----
 * The extension itself is under MIT.
-* Icon is purchased from user https://www.iconfinder.com/sensibleworld and under license https://www.iconfinder.com/licenses/basic.
+* Icon is purchased from user https://www.iconfinder.com/sensibleworld and under https://www.iconfinder.com/licenses/basic.
