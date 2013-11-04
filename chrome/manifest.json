@@ -1,0 +1,22 @@
+{
+	"manifest_version": 2,
+	"name": "Twean",
+	"version": "1.0.0",
+	"description": "Clean your Twitter timeline by removing inline images.",
+	"author":"Tekool - Frédéric Saunier",
+	"homepage_url" :"https://github.com/tekool/twean",
+
+	"content_scripts":
+	[
+		{
+			"matches": ["https://twitter.com/"],
+			"js": ["page.js"]
+		}
+	],
+
+	"browser_action":
+	{
+		"default_title": "Twean",
+		"default_icon": "twean.ico"
+	}
+}
