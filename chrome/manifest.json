@@ -1,17 +1,19 @@
 {
 	"manifest_version": 2,
 	"name": "Twean",
-	"short_name": "Twean",
-	"version": "1.1.1",
-	"description": "Remove auto-expanded images from your Twitter timeline.",
+	//"short_name": "Twean",
+	"version": "1.2.0",
+	"description": "Remove images previews and promoted content from Twitter timeline.",
 	"author":"Tekool - Frédéric Saunier",
 	"homepage_url" :"https://github.com/tekool/twean",
 
 	"content_scripts":
 	[
 		{
-			"matches": ["https://twitter.com/"],
-			"js": ["page.js"]
+			"matches": ["https://twitter.com/*"],
+			"exclude_matches": ["https://twitter.com/settings/*"],
+			"js": ["page.js"],
+			"options_page": "options.html"
 		}
 	],
 
