@@ -17,7 +17,6 @@
 
 	"browser_action":
 	{
-		"default_title": "Twean",
-		"default_icon": "twean.png"
+		"default_title": "Twean"
 	}
 }
