@@ -4,7 +4,7 @@
 	"short_name": "Twean",
 	"version": "1.2.0",
 	"description": "Remove images previews and promoted content from Twitter timeline.",
-	"author":"Tekool - Frédéric Saunier",
+	"author":"Tekool - Frédéric Saunier - www.tekool.net",
 	"homepage_url" :"https://github.com/tekool/twean",
 
 	"content_scripts":
@@ -18,26 +18,29 @@
 		}
 	],
 
-	"icons" : {
-		"19": "icon19.png",
-		"38" : "icon38.png",
-	    "48" : "icon48.png",
-	    "128" : "icon128.png"
+	"icons" :
+	{
+		"19": "icon/icon19.png",
+		"38" : "icon/icon38.png",
+	    "48" : "icon/icon48.png",
+	    "128" : "icon/icon128.png"
 	},
 
 	"page_action":
 	{
 		"default_title": "Twean",
-		"default_icon": {
-			"19": "icon19.png",
-			"38" : "icon38.png",
-			"48" : "icon48.png",
-			"128" : "icon128.png"
+		"default_icon":
+		{
+			"19": "icon/icon19.png",
+			"38" : "icon/icon38.png",
+			"48" : "icon/icon48.png",
+			"128" : "icon/icon128.png"
 		},
 		"default_popup": "options.html"
 	},
 
-	"background": {
+	"background":
+	{
 		"scripts": ["background.js"]
 	},
 

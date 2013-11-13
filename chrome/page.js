@@ -1,36 +1,58 @@
 new Function()
 {
-	chrome.extension.sendMessage({type:'showPageAction'});
-
-	var preview = localStorage["preview"] || true;
-	var promoted = localStorage["promoted"] || true;
+	chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+		if( request === "refresh" )
+			refresh();
+	});
+	//Display icon on the address bar when page script is loaded.
+	chrome.extension.sendMessage("showPageAction");
 
 	//Injected by the extension even before the <head/> element exists
 	var sheet = document.getElementsByTagName("html")[0].appendChild(document.createElement("style")).sheet;
 
-	//image and video previews
-	if( preview )
-		chrome.extension.sendMessage({type:'showPreview'});
-
-	//promoted content
-	if( promoted )
-		chrome.extension.sendMessage({type:'showPromoted'});
-
-	function showPreview()
+	var show = 'display:inline-block !important';
+	var hide = 'display:none !important;';
+	var rules =
 	{
-		//image previews
-		sheet.addRule(".js-stream-item .media > .media-thumbnail.is-preview > img", 'display:none !important;');
-		sheet.addRule(".js-stream-item.open .media > .media-thumbnail.is-preview > img", 'display:inline-block !important');
+		imagePreview : ".js-stream-item .media > .media-thumbnail.is-preview > img",
+		imagePreviewOpen : ".js-stream-item.open .media > .media-thumbnail.is-preview > img",
+		videoPreview : ".js-stream-item > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
+		videoPreviewOpen : ".js-stream-item.open > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
+		promotedTrend: ".trends .promoted-trend",
+		promotedTweet: ".js-stream-item .content .js-action-profile-promoted",
+		promotedPeople: ".wtf-module .promoted-account"
+	};
 
-		//video previews
-		sheet.addRule(".js-stream-item > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']", 'display:none !important;');
-		sheet.addRule(".js-stream-item.open > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']", 'display:inline-block !important;');
+	sheet.addRule( rules.imagePreviewOpen, show );
+	sheet.addRule( rules.videoPreviewOpen, show );
+
+	function refresh()
+	{
+		var preview = localStorage["preview"] || true;
+		var promoted = localStorage["promoted"] || true;
+
+		removeRules();
+
+		//image and video previews
+		if( preview )
+		{
+			sheet.addRule(rules.imagePreview, hide );
+			sheet.addRule(rules.videoPreview, hide );
+		}
+
+		//promoted content
+		if( promoted )
+		{
+			sheet.addRule(rules.promotedPeople, hide);
+			sheet.addRule(rules.promotedTrend, hide);
+			sheet.addRule(rules.promotedTweet, hide);
+		}
 	}
 
-	function showPromoted()
+	function removeRules()
 	{
-		sheet.addRule(".trends .promoted-trend", 'display:none !important;');
-		sheet.addRule(".js-stream-item .content .js-action-profile-promoted", 'display:none !important;');
-		sheet.addRule(".wtf-module .promoted-account", 'display:none !important;');
+
 	}
+
+	refresh();
 }

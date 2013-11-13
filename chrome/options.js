@@ -12,17 +12,18 @@
 		localStorage["promoted"] = !!promoted.checked;
 
 		document.body.classList.add("saved");
-		setTimeout(function(){document.body.classList.remove("saved")},1050)
+		setTimeout(function(){document.body.classList.remove("saved")},1050);
+
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			chrome.tabs.sendMessage(tabs[0].id, "refresh");
+		});
 	}
 
 	// Restores select box state to saved value from localStorage.
 	function restore()
 	{
-		var hasPreviews = localStorage["previews"] || true;
-		var hasPromoted = localStorage["promoted"] || true;
-
-		previews.checked = hasPreviews;
-		promoted.checked = hasPromoted;
+		previews.checked = localStorage["previews"] || true;
+		promoted.checked = localStorage["promoted"] || true;
 	}
 
 	document.addEventListener('DOMContentLoaded', restore);
