@@ -1,4 +1,6 @@
 /.idea
-twean.pem
+chrome.pem
+chrome.crx
+chrome/icon/*
 twean.png
 chrome.zip
