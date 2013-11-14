@@ -8,8 +8,8 @@
 	// Saves options to localStorage.
 	function save()
 	{
-		localStorage["previews"] = !!previews.checked;
-		localStorage["promoted"] = !!promoted.checked;
+		localStorage.previews = !!previews.checked;
+		localStorage.promoted = !!promoted.checked;
 
 		document.body.classList.add("saved");
 		setTimeout(function(){document.body.classList.remove("saved")},1050);
@@ -22,8 +22,8 @@
 	// Restores select box state to saved value from localStorage.
 	function restore()
 	{
-		previews.checked = localStorage["previews"] || true;
-		promoted.checked = localStorage["promoted"] || true;
+		previews.checked = localStorage.previews || true;
+		promoted.checked = localStorage.promoted || true;
 	}
 
 	document.addEventListener('DOMContentLoaded', restore);

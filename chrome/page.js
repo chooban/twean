@@ -1,5 +1,8 @@
 new Function()
 {
+	var preview = true;
+	var promoted = true;
+
 	chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
 		if( request === "refresh" )
 			refresh();
@@ -28,9 +31,6 @@ new Function()
 
 	function refresh()
 	{
-		var preview = localStorage["preview"] || true;
-		var promoted = localStorage["promoted"] || true;
-
 		removeRules();
 
 		//image and video previews
@@ -51,8 +51,19 @@ new Function()
 
 	function removeRules()
 	{
-
+		for( )
 	}
 
+	function getOptions()
+	{
+		chrome.extension.sendMessage("optionsRequest", function(response)
+		{
+			preview = response.preview || true;
+			promoted = response.promoted || true;
+			refresh();
+		});
+	}
+
+	getOptions();
 	refresh();
 }
