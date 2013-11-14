@@ -1,37 +1,45 @@
 new Function()
 {
-	var preview = true;
-	var promoted = true;
+	var
+		style,
+		sheet,
 
-	chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
-		if( request === "refresh" )
-			refresh();
-	});
-	//Display icon on the address bar when page script is loaded.
-	chrome.extension.sendMessage("showPageAction");
+		//The first pass will hide all as default
+		preview = true,
+		promoted = true,
 
-	//Injected by the extension even before the <head/> element exists
-	var sheet = document.getElementsByTagName("html")[0].appendChild(document.createElement("style")).sheet;
+		show = 'display:inline-block !important',
+		hide = 'display:none !important;',
 
-	var show = 'display:inline-block !important';
-	var hide = 'display:none !important;';
-	var rules =
-	{
-		imagePreview : ".js-stream-item .media > .media-thumbnail.is-preview > img",
-		imagePreviewOpen : ".js-stream-item.open .media > .media-thumbnail.is-preview > img",
-		videoPreview : ".js-stream-item > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
-		videoPreviewOpen : ".js-stream-item.open > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
-		promotedTrend: ".trends .promoted-trend",
-		promotedTweet: ".js-stream-item .content .js-action-profile-promoted",
-		promotedPeople: ".wtf-module .promoted-account"
-	};
-
-	sheet.addRule( rules.imagePreviewOpen, show );
-	sheet.addRule( rules.videoPreviewOpen, show );
+		rules =
+		{
+			imagePreview : ".js-stream-item .media > .media-thumbnail.is-preview > img",
+			imagePreviewOpen : ".js-stream-item.open .media > .media-thumbnail.is-preview > img",
+			videoPreview : ".js-stream-item > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
+			videoPreviewOpen : ".js-stream-item.open > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
+			promotedTrend: ".trends .promoted-trend",
+			promotedTweet: ".js-stream-item .content .js-action-profile-promoted",
+			promotedPeople: ".wtf-module .promoted-account"
+		}
+	;
 
 	function refresh()
 	{
+		console.log("refreshed")
 		removeRules();
+
+		style = document.createElement("style");
+
+		//Injected by the extension even before the <head/> element exists
+		var html = document.getElementsByTagName("html")[0];
+		if( html.firstChild )
+			html.insertBefore( style, html.firstChild );
+		else
+			html.appendChild(style);
+
+		sheet = style.sheet;
+		sheet.addRule( rules.imagePreviewOpen, show );
+		sheet.addRule( rules.videoPreviewOpen, show );
 
 		//image and video previews
 		if( preview )
@@ -51,7 +59,8 @@ new Function()
 
 	function removeRules()
 	{
-		for( )
+		if(style)
+			style.parentNode.removeChild(style);
 	}
 
 	function getOptions()
@@ -63,6 +72,14 @@ new Function()
 			refresh();
 		});
 	}
+
+	chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
+		if( request === "refresh" )
+			getOptions();
+	});
+
+	//Display icon on the address bar when page script is loaded.
+	chrome.extension.sendMessage("showPageAction");
 
 	getOptions();
 	refresh();
