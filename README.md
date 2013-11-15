@@ -1,7 +1,7 @@
 Twean
 =====
 
-Clean your Twitter timeline by removing auto-expanded inline images from it.
+Hide images and video previews, but also promoted trends and tweets from your timeline.
 
 Installation
 ----
