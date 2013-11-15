@@ -30,5 +30,5 @@ body
 
 .saved
 {
-    -webkit-animation: bounce 1s linear;
+    -webkit-animation: bounce 0.3s linear;
 }

@@ -1,5 +1,7 @@
-new Function()
+(function()
 {
+	"use strict";
+
 	var
 		style,
 		sheet,
@@ -18,14 +20,17 @@ new Function()
 			videoPreview : ".js-stream-item > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
 			videoPreviewOpen : ".js-stream-item.open > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
 			promotedTrend: ".trends .promoted-trend",
-			promotedTweet: ".js-stream-item .content .js-action-profile-promoted",
+			promotedTweet: ".js-stream-item .promoted-tweet",
 			promotedPeople: ".wtf-module .promoted-account"
 		}
 	;
 
+	/**
+	 * Refresh the display by first removing all applied CSS rules and appying only those needed
+	 * as defined by user options.
+	 */
 	function refresh()
 	{
-		console.log("refreshed");
 		removeRules();
 
 		style = document.createElement("style");
@@ -57,12 +62,18 @@ new Function()
 		}
 	}
 
+	/**
+	 * Basically remove the style sheet and so removes all applied styles.
+	 */
 	function removeRules()
 	{
 		if(style)
 			style.parentNode.removeChild(style);
 	}
 
+	/**
+	 * Make a request to the background page for the options chosen by the user if any.
+	 */
 	function getOptions()
 	{
 		chrome.extension.sendMessage("optionsRequest", function(response)
@@ -84,4 +95,4 @@ new Function()
 
 	getOptions();
 	refresh();
-}
+})();
