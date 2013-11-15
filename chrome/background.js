@@ -8,8 +8,8 @@ function messageListener( request, sender, response )
 
 		case 'optionsRequest':
 			response({
-				 previews: localStorage["previews"] || true,
-				 promoted: localStorage["promoted"] || true
+				 previews: typeof localStorage.previews === "undefined" || localStorage.previews === "true",
+				 promoted: typeof localStorage.promoted === "undefined" || localStorage.promoted === "true"
 			});
 		return true;
 

@@ -5,7 +5,7 @@ new Function()
 		sheet,
 
 		//The first pass will hide all as default
-		preview = true,
+		previews = true,
 		promoted = true,
 
 		show = 'display:inline-block !important',
@@ -25,7 +25,7 @@ new Function()
 
 	function refresh()
 	{
-		console.log("refreshed")
+		console.log("refreshed");
 		removeRules();
 
 		style = document.createElement("style");
@@ -42,7 +42,7 @@ new Function()
 		sheet.addRule( rules.videoPreviewOpen, show );
 
 		//image and video previews
-		if( preview )
+		if( previews )
 		{
 			sheet.addRule(rules.imagePreview, hide );
 			sheet.addRule(rules.videoPreview, hide );
@@ -67,8 +67,9 @@ new Function()
 	{
 		chrome.extension.sendMessage("optionsRequest", function(response)
 		{
-			preview = response.preview || true;
-			promoted = response.promoted || true;
+			previews = response.previews;
+			promoted = response.promoted;
+
 			refresh();
 		});
 	}
