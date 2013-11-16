@@ -10,8 +10,8 @@
 	{
 		switch( request )
 		{
-			case 'showPageAction':
-				chrome.pageAction.show(sender.tab.id);
+			case 'displayIcon':
+				displayIcon( sender.tab );
 			return false;
 
 			case 'optionsRequest':
@@ -27,13 +27,19 @@
 				});
 			return false;
 		}
+
+		return false;
 	});
 
 	/**
-	 * Help in adding the extension icon to the bar.
+	 * Force the Twean icon to appear in the address bar.
+	 *
+	 * @param tab
+	 * 		Tab on which to display the icon.
 	 */
-	chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-		chrome.pageAction.show(tabId);
-	});
+	function displayIcon( tab )
+	{
+		chrome.pageAction.show( tab.id );
+	}
 
 })();

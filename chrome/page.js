@@ -3,6 +3,7 @@
 	"use strict";
 
 	var
+		lastUrl,
 		style,
 		sheet,
 
@@ -15,8 +16,8 @@
 
 		rules =
 		{
-			imagePreview : ".js-stream-item .media > .media-thumbnail.is-preview > img",
-			imagePreviewOpen : ".js-stream-item.open .media > .media-thumbnail.is-preview > img",
+			imagePreview : ".expanding-stream-item .cards-media-container",
+			imagePreviewOpen : ".js-stream-item.open .cards-media-container",
 			videoPreview : ".js-stream-item > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
 			videoPreviewOpen : ".js-stream-item.open > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
 			promotedTrend: ".trends .promoted-trend",
@@ -85,14 +86,25 @@
 		});
 	}
 
+	/**
+	 * We have to force the icon to stay in place even when the URL change in the address bar.
+	 */
+	function displayIcon()
+	{
+		if( lastUrl != document.location.href )
+			chrome.extension.sendMessage("displayIcon");
+
+		lastUrl = document.location.href;
+
+		setTimeout( displayIcon, 500 );
+	}
+
 	chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 		if( request === "refresh" )
 			getOptions();
 	});
 
-	//Display icon on the address bar when page script is loaded.
-	chrome.extension.sendMessage("showPageAction");
-
+	displayIcon();
 	getOptions();
 	refresh();
 })();
