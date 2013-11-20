@@ -17,7 +17,9 @@
 			case 'optionsRequest':
 				response({
 					previews: typeof localStorage.previews === "undefined" || localStorage.previews === "true",
-					promoted: typeof localStorage.promoted === "undefined" || localStorage.promoted === "true"
+					promoted: typeof localStorage.promoted === "undefined" || localStorage.promoted === "true",
+					wtfModule: typeof localStorage.wtfModule !== "undefined" && localStorage.wtfModule === "true",
+					trendsModule: typeof localStorage.trendsModule !== "undefined" && localStorage.trendsModule === "true"
 				});
 			return true;
 

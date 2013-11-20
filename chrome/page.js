@@ -10,6 +10,8 @@
 		//The first pass will hide all as default
 		previews = true,
 		promoted = true,
+		wtfModule = false,
+		trendsModule = false,
 
 		show = 'display:inline-block !important',
 		hide = 'display:none !important;',
@@ -22,7 +24,9 @@
 			videoPreviewOpen : ".js-stream-item.open > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
 			promotedTrend: ".trends .promoted-trend",
 			promotedTweet: ".js-stream-item .promoted-tweet",
-			promotedPeople: ".wtf-module .promoted-account"
+			promotedPeople: ".wtf-module .promoted-account",
+			wtfModule: ".wtf-module",
+			trendsModule: ".trends"
 		}
 	;
 
@@ -61,6 +65,14 @@
 			sheet.addRule(rules.promotedTrend, hide);
 			sheet.addRule(rules.promotedTweet, hide);
 		}
+
+		//Who To Follow module
+		if( wtfModule )
+			sheet.addRule(rules.wtfModule, hide);
+
+		//Trends module
+		if( trendsModule )
+			sheet.addRule(rules.trendsModule, hide);
 	}
 
 	/**
@@ -81,6 +93,8 @@
 		{
 			previews = response.previews;
 			promoted = response.promoted;
+			wtfModule = response.wtfModule;
+			trendsModule = response.trendsModule;
 
 			refresh();
 		});
@@ -96,7 +110,7 @@
 
 		lastUrl = document.location.href;
 
-		setTimeout( displayIcon, 500 );
+		setTimeout( displayIcon, 1000 );
 	}
 
 	chrome.extension.onMessage.addListener(function(request, sender, sendResponse){

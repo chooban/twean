@@ -4,7 +4,9 @@
 
 	var
 		previews = document.querySelector("#previews"),
-		promoted = document.querySelector("#promoted")
+		promoted = document.querySelector("#promoted"),
+		wtfModule = document.querySelector("#wtfModule"),
+		trendsModule = document.querySelector("#trendsModule")
 	;
 
 	/**
@@ -15,6 +17,8 @@
 		//Will be stored as string
 		localStorage.previews = previews.checked;
 		localStorage.promoted = promoted.checked;
+		localStorage.wtfModule = wtfModule.checked;
+		localStorage.trendsModule = trendsModule.checked;
 
 		//Run a CSS animation to let the user know changes had been taken into account.
 		document.body.classList.add("saved");
@@ -31,15 +35,26 @@
 	{
 		previews.removeAttribute("checked");
 		promoted.removeAttribute("checked");
+		wtfModule.removeAttribute("checked");
+		trendsModule.removeAttribute("checked");
 
 		if( typeof localStorage.previews === "undefined" || localStorage.previews === "true" )
 			previews.checked = true;
 
 		if( typeof localStorage.promoted === "undefined" || localStorage.promoted === "true" )
 			promoted.checked = true;
+
+		if( typeof localStorage.wtfModule !== "undefined" && localStorage.wtfModule === "true" )
+			wtfModule.checked = true;
+
+		if( typeof localStorage.trendsModule !== "undefined" && localStorage.trendsModule === "true" )
+			trendsModule.checked = true;
 	}
 
 	previews.addEventListener('change', save);
 	promoted.addEventListener('change', save);
+	wtfModule.addEventListener('change', save);
+	trendsModule.addEventListener('change', save);
+
 	document.addEventListener('DOMContentLoaded', restore);
 })();
