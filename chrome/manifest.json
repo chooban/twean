@@ -3,7 +3,7 @@
 	"name": "Twean",
 	"short_name": "Twean",
 	"version": "1.3",
-	"description": "Hide images previews, promoted content from Twitter timeline. Can also hide «Who To Follow» and «Trends» module. Each has its optional setting.",
+	"description": "Hide images previews, promoted content from Twitter timeline. Can also hide «Who To Follow» and «Trends» modules.",
 	"author":"Tekool - Frédéric Saunier - www.tekool.net",
 	"homepage_url" :"https://github.com/tekool/twean",
 
