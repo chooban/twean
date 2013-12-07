@@ -20,8 +20,8 @@
 		{
 			imagePreview : ".expanding-stream-item .cards-media-container",
 			imagePreviewOpen : ".js-stream-item.open .cards-media-container",
-			videoPreview : ".js-stream-item > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
-			videoPreviewOpen : ".js-stream-item.open > .content > .expanded-content > .tweet-details-fixer > .js-media-container[data-card2-name='player']",
+			videoPreview : ".js-stream-item .js-media-container[data-card2-name='player']",
+			videoPreviewOpen : ".js-stream-item.open .js-media-container[data-card2-name='player']",
 			promotedTrend: ".trends .promoted-trend",
 			promotedTweet: ".js-stream-item .promoted-tweet",
 			promotedPeople: ".wtf-module .promoted-account",
