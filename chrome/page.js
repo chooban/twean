@@ -20,8 +20,12 @@
 		{
 			imagePreview : ".expanding-stream-item .cards-media-container",
 			imagePreviewOpen : ".js-stream-item.open .cards-media-container",
-			videoPreview : ".js-stream-item .js-media-container[data-card2-name='player']",
-			videoPreviewOpen : ".js-stream-item.open .js-media-container[data-card2-name='player']",
+
+			//#stream-item-tweet-617607339722543104 > ol > li > div > div.content > div.card2.js-media-container
+			//#stream-item-tweet-617607339722543104 > ol > li.original-tweet-container > div.tweet.original-tweet.js-stream-tweet.js-actionable-tweet.js-profile-popup-actionable.js-original-tweet.has-cards.has-native-media.with-media-forward.auto-expanded.media-forward.cards-forward.with-non-tweet-action-follow-button.has-autoplayable-media.with-social-proof.focus.opened-tweet.animated-gif-playing > div.content > div.card2.js-media-container
+			videoPreview : "ol > li > div > div.content > div.card2.js-media-container",
+			videoPreviewOpen : "ol > li.original-tweet-container > .opened-tweet > div.content > div.card2.js-media-container",
+
 			promotedTrend: ".trends .promoted-trend",
 			promotedTweet: ".js-stream-item .promoted-tweet",
 			promotedPeople: ".wtf-module .promoted-account",
