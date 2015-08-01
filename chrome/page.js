@@ -63,13 +63,13 @@
 		if( previews )
 		{
 			sheet.addRule(rules.imagePreview, 'display:none;' );
-			sheet.addRule(rules.imagePreviewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
+			sheet.addRule(rules.imagePreviewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"image"; display:block;' );
 			sheet.addRule(rules.imagePreviewOpen, 'display:block;' );
 			sheet.addRule(rules.imagePreviewOpenBefore, 'display:none;' );
 
 			sheet.addRule(rules.videoPreview, 'display:none !important;' );
 			sheet.addRule(rules.videoPreviewIcon, 'display:none !important;' );
-			sheet.addRule(rules.videoPreviewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
+			sheet.addRule(rules.videoPreviewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"video"; display:block;' );
 			sheet.addRule(rules.videoPreviewOpen, 'display:block !important;' );
 			sheet.addRule(rules.videoPreviewOpenBefore, 'display:none;' );
 		}
