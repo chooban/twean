@@ -2,10 +2,10 @@
 	"manifest_version": 2,
 	"name": "Twean",
 	"short_name": "Twean",
-	"version": "1.4",
-	"description": "Hide images previews, promoted content from Twitter timeline. Can also hide «Who To Follow» and «Trends» modules.",
-	"author":"Tekool - Frédéric Saunier - www.tekool.net",
-	"homepage_url" :"https://github.com/tekool/twean",
+	"version": "1.5",
+	"description": "Hide image and video previews, promoted content from Twitter timeline. Can also hide «Who To Follow» and «Trends» modules.",
+	"author":"Tekool - www.tekool.net",
+	"homepage_url" :"https://chrome.google.com/webstore/detail/twean/mgdbopghpkjmgnhjfdnfeihnjgndjnbp",
 
 	"content_scripts":
 	[
