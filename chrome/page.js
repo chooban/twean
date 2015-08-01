@@ -19,14 +19,15 @@
 		rules =
 		{
 			imagePreview : ".expanding-stream-item .cards-media-container > div",
-			imagePreviewAfter : ".expanding-stream-item .cards-media-container:before",
+			imagePreviewBefore : ".expanding-stream-item .cards-media-container:before",
 			imagePreviewOpen : ".expanding-stream-item .opened-tweet .cards-media-container > div",
-			imagePreviewOpenAfter : ".expanding-stream-item .opened-tweet .cards-media-container:before",
-			//imagePreview : ".media-thumbnail img",
-			//imagePreviewOpen : ".opened-tweet .media-thumbnail img",
+			imagePreviewOpenBefore : ".expanding-stream-item .opened-tweet .cards-media-container:before",
 
-			videoPreview : "ol > li > div > div.content > div.card2.js-media-container",
-			videoPreviewOpen : "ol > li > div .opened-tweet > div.content > div.card2.js-media-container",
+			videoPreview : "div.card2.js-media-container > *",
+			videoPreviewBefore : "div.card2.js-media-container:before",
+			videoPreviewIcon : ".opened-tweet div.card2.js-media-container > div",
+			videoPreviewOpen : ".opened-tweet div.card2.js-media-container > *",
+			videoPreviewOpenBefore : ".opened-tweet div.card2.js-media-container:before",
 
 			promotedTrend: ".trends .promoted-trend",
 			promotedTweet: ".js-stream-item .promoted-tweet",
@@ -56,14 +57,21 @@
 		sheet = style.sheet;
 
 		sheet.addRule(rules.imagePreview, 'display:block;' );
+		sheet.addRule(rules.videoPreview, 'display:block !important;' );
 
 		//image and video previews
 		if( previews )
 		{
 			sheet.addRule(rules.imagePreview, 'display:none;' );
-			sheet.addRule(rules.imagePreviewAfter, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
+			sheet.addRule(rules.imagePreviewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
 			sheet.addRule(rules.imagePreviewOpen, 'display:block;' );
-			sheet.addRule(rules.imagePreviewOpenAfter, 'display:none;' );
+			sheet.addRule(rules.imagePreviewOpenBefore, 'display:none;' );
+
+			sheet.addRule(rules.videoPreview, 'display:none !important;' );
+			sheet.addRule(rules.videoPreviewIcon, 'display:none !important;' );
+			sheet.addRule(rules.videoPreviewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
+			sheet.addRule(rules.videoPreviewOpen, 'display:block !important;' );
+			sheet.addRule(rules.videoPreviewOpenBefore, 'display:none;' );
 		}
 
 		//promoted content
