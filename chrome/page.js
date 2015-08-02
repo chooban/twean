@@ -23,10 +23,10 @@
 			imagePreviewOpen : ".expanding-stream-item .opened-tweet .cards-media-container > div",
 			imagePreviewOpenBefore : ".expanding-stream-item .opened-tweet .cards-media-container:before",
 
-			videoPreview : "div.card2.js-media-container > *",
+			videoPreview : "div.card2.js-media-container > div",
 			videoPreviewBefore : "div.card2.js-media-container:before",
 			videoPreviewIcon : ".opened-tweet div.card2.js-media-container > div",
-			videoPreviewOpen : ".opened-tweet div.card2.js-media-container > *",
+			videoPreviewOpen : ".opened-tweet div.card2.js-media-container > div",
 			videoPreviewOpenBefore : ".opened-tweet div.card2.js-media-container:before",
 
 			promotedTrend: ".trends .promoted-trend",
