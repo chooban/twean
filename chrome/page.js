@@ -23,10 +23,10 @@
 			imagePreviewOpen : ".expanding-stream-item .opened-tweet .cards-media-container > div",
 			imagePreviewOpenBefore : ".expanding-stream-item .opened-tweet .cards-media-container:before",
 
-			videoPreview : "div.card2.js-media-container > div",
+			videoPreview : "div.card2.js-media-container > div, div.card2.js-media-container > video",
 			videoPreviewBefore : "div.card2.js-media-container:before",
-			videoPreviewIcon : ".opened-tweet div.card2.js-media-container > div",
-			videoPreviewOpen : ".opened-tweet div.card2.js-media-container > div",
+			videoPreviewIcon : ".opened-tweet div.card2.js-media-container > .Icon",
+			videoPreviewOpen : ".opened-tweet div.card2.js-media-container > div, .opened-tweet div.card2.js-media-container > video",
 			videoPreviewOpenBefore : ".opened-tweet div.card2.js-media-container:before",
 
 			promotedTrend: ".trends .promoted-trend",
@@ -68,7 +68,7 @@
 			sheet.addRule(rules.imagePreviewOpenBefore, 'display:none;' );
 
 			sheet.addRule(rules.videoPreview, 'display:none !important;' );
-			sheet.addRule(rules.videoPreviewIcon, 'display:none !important;' );
+			sheet.addRule(rules.videoPreviewIcon, 'visibility:hidden !important;' );
 			sheet.addRule(rules.videoPreviewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"video"; display:block;' );
 			sheet.addRule(rules.videoPreviewOpen, 'display:block !important;' );
 			sheet.addRule(rules.videoPreviewOpenBefore, 'display:none;' );
