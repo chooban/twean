@@ -18,16 +18,11 @@
 
 		rules =
 		{
-			imagePreview : ".expanding-stream-item .cards-media-container > div",
-			imagePreviewBefore : ".expanding-stream-item .cards-media-container:before",
-			imagePreviewOpen : ".expanding-stream-item .opened-tweet .cards-media-container > div",
-			imagePreviewOpenBefore : ".expanding-stream-item .opened-tweet .cards-media-container:before",
-
-			videoPreview : "div.card2.js-media-container > div, div.card2.js-media-container > video",
-			videoPreviewBefore : "div.card2.js-media-container:before",
-			videoPreviewIcon : ".opened-tweet div.card2.js-media-container > .Icon",
-			videoPreviewOpen : ".opened-tweet div.card2.js-media-container > div, .opened-tweet div.card2.js-media-container > video",
-			videoPreviewOpenBefore : ".opened-tweet div.card2.js-media-container:before",
+			previewContainer: ".expanding-stream-item .OldMedia",
+			preview : ".expanding-stream-item .OldMedia > div",
+			previewBefore : ".expanding-stream-item .OldMedia:before",
+			previewOpen : ".expanding-stream-item .opened-tweet .OldMedia > div",
+			previewOpenBefore : ".expanding-stream-item .opened-tweet .OldMedia:before",
 
 			promotedTrend: ".trends .promoted-trend",
 			promotedTweet: ".js-stream-item .promoted-tweet",
@@ -56,22 +51,16 @@
 
 		sheet = style.sheet;
 
-		sheet.addRule(rules.imagePreview, 'display:block;' );
-		sheet.addRule(rules.videoPreview, 'display:block !important;' );
+		sheet.addRule(rules.preview, 'display:block !important;' );
 
 		//image and video previews
 		if( previews )
 		{
-			sheet.addRule(rules.imagePreview, 'display:none;' );
-			sheet.addRule(rules.imagePreviewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"image"; display:block;' );
-			sheet.addRule(rules.imagePreviewOpen, 'display:block;' );
-			sheet.addRule(rules.imagePreviewOpenBefore, 'display:none;' );
-
-			sheet.addRule(rules.videoPreview, 'display:none !important;' );
-			sheet.addRule(rules.videoPreviewIcon, 'visibility:hidden !important;' );
-			sheet.addRule(rules.videoPreviewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"video"; display:block;' );
-			sheet.addRule(rules.videoPreviewOpen, 'display:block !important;' );
-			sheet.addRule(rules.videoPreviewOpenBefore, 'display:none;' );
+			sheet.addRule(rules.previewContainer, 'display:block; text-align:right;' );
+			sheet.addRule(rules.preview, 'display:none !important;' );
+			sheet.addRule(rules.previewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
+			sheet.addRule(rules.previewOpen, 'display:block !important;' );
+			sheet.addRule(rules.previewOpenBefore, 'display:none !important;' );
 		}
 
 		//promoted content
