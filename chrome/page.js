@@ -13,7 +13,7 @@
 		wtfModule = false,
 		trendsModule = false,
 
-		show = 'display:inline-block !important',
+		show = 'display:initial !important;',
 		hide = 'display:none !important;',
 
 		rules =
@@ -51,16 +51,16 @@
 
 		sheet = style.sheet;
 
-		sheet.addRule(rules.preview, 'display:block !important;' );
+		sheet.addRule(rules.preview, show );
 
 		//image and video previews
 		if( previews )
 		{
-			sheet.addRule(rules.previewContainer, 'display:block; text-align:right;' );
-			sheet.addRule(rules.preview, 'display:none !important;' );
+			sheet.addRule(rules.previewContainer, show );
+			sheet.addRule(rules.preview, hide );
 			sheet.addRule(rules.previewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
-			sheet.addRule(rules.previewOpen, 'display:block !important;' );
-			sheet.addRule(rules.previewOpenBefore, 'display:none !important;' );
+			sheet.addRule(rules.previewOpen, show );
+			sheet.addRule(rules.previewOpenBefore, hide );
 		}
 
 		//promoted content
