@@ -1,8 +1,6 @@
 /.idea
-twean.pem
-chrome/icon/*
-twean.png
-chrome.zip
-chrome.crx
-twean.crx
-design/*
+/twean.pem
+/chrome/icon/*
+/chrome.zip
+/design/*
+/misc/*

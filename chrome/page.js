@@ -18,11 +18,11 @@
 
 		rules =
 		{
-			previewContainer: ".expanding-stream-item .OldMedia",
-			preview : ".expanding-stream-item .OldMedia > div",
-			previewBefore : ".expanding-stream-item .OldMedia:before",
-			previewOpen : ".expanding-stream-item .opened-tweet .OldMedia > div",
-			previewOpenBefore : ".expanding-stream-item .opened-tweet .OldMedia:before",
+			previewContainer: ".expanding-stream-item .AdaptiveMedia",
+			preview : ".expanding-stream-item .AdaptiveMedia > div",
+			previewBefore : ".expanding-stream-item .AdaptiveMedia:before",
+			previewOpen : ".expanding-stream-item .opened-tweet .AdaptiveMedia > div",
+			previewOpenBefore : ".expanding-stream-item .opened-tweet .AdaptiveMedia:before",
 
 			promotedTrend: ".trends .promoted-trend",
 			promotedTweet: ".js-stream-item .promoted-tweet",
