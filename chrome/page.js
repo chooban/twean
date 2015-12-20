@@ -28,6 +28,7 @@
 			promotedTweet: ".js-stream-item .promoted-tweet",
 			promotedPeople: ".wtf-module .promoted-account",
 			wtfModule: ".wtf-module",
+			wtfCarousel: ".WtfLargeCarouselStreamItem",
 			trendsModule: ".trends"
 		}
 	;
@@ -74,7 +75,10 @@
 
 		//Who To Follow module
 		if( wtfModule )
+		{
+			sheet.addRule(rules.wtfCarousel, hide);
 			sheet.addRule(rules.wtfModule, hide);
+		}
 
 		//Trends module
 		if( trendsModule )
