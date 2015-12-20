@@ -26,6 +26,7 @@
 
 			promotedTrend: ".trends .promoted-trend",
 			promotedTweet: ".js-stream-item .promoted-tweet",
+			suggestedTweet: ".suggested-tweet-stream-container",
 			promotedPeople: ".wtf-module .promoted-account",
 			wtfModule: ".wtf-module",
 			wtfCarousel: ".WtfLargeCarouselStreamItem",
@@ -71,6 +72,7 @@
 			sheet.addRule(rules.promotedPeople, hide);
 			sheet.addRule(rules.promotedTrend, hide);
 			sheet.addRule(rules.promotedTweet, hide);
+			sheet.addRule(rules.suggestedTweet, hide);
 		}
 
 		//Who To Follow module
