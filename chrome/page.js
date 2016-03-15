@@ -23,6 +23,7 @@
 			previewBefore : ".expanding-stream-item .AdaptiveMedia:before, [data-card2-name$=\":periscope_broadcast\"]:before",
 			previewOpen : ".expanding-stream-item .opened-tweet .AdaptiveMedia > div, .opened-tweet [data-card2-name$=\":periscope_broadcast\"] > div",
 			previewOpenBefore : ".expanding-stream-item .opened-tweet .AdaptiveMedia:before, .opened-tweet [data-card2-name$=\":periscope_broadcast\"]:before",
+			previewBorder : '.AdaptiveMedia.is-square:not(.is-generic-video)',
 
 			promotedTrend: ".trends .promoted-trend",
 			promotedTweet: ".js-stream-item .promoted-tweet",
@@ -64,6 +65,7 @@
 			sheet.addRule(rules.previewOpen, show );
 			sheet.addRule(rules.previewOpen + ' .AdaptiveMedia-singlePhoto img', 'top:0 !important' ); //Fix for the opened image going over other tweets.
 			sheet.addRule(rules.previewOpenBefore, hide );
+			sheet.addRule(rules.previewBorder, 'border:none !important');
 		}
 
 		//promoted content
