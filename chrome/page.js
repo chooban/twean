@@ -19,10 +19,10 @@
 		rules =
 		{
 			previewContainer: ".expanding-stream-item .AdaptiveMedia",
-			preview : ".expanding-stream-item .AdaptiveMedia > div",
-			previewBefore : ".expanding-stream-item .AdaptiveMedia:before",
-			previewOpen : ".expanding-stream-item .opened-tweet .AdaptiveMedia > div",
-			previewOpenBefore : ".expanding-stream-item .opened-tweet .AdaptiveMedia:before",
+			preview : ".expanding-stream-item .AdaptiveMedia > div, [data-card2-name$=\":periscope_broadcast\"] > div",
+			previewBefore : ".expanding-stream-item .AdaptiveMedia:before, [data-card2-name$=\":periscope_broadcast\"]:before",
+			previewOpen : ".expanding-stream-item .opened-tweet .AdaptiveMedia > div, .opened-tweet [data-card2-name$=\":periscope_broadcast\"] > div",
+			previewOpenBefore : ".expanding-stream-item .opened-tweet .AdaptiveMedia:before, .opened-tweet [data-card2-name$=\":periscope_broadcast\"]:before",
 
 			promotedTrend: ".trends .promoted-trend",
 			promotedTweet: ".js-stream-item .promoted-tweet",
