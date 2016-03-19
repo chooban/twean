@@ -19,8 +19,8 @@
 		rules =
 		{
 			previewContainer: ".expanding-stream-item .AdaptiveMedia",
-			preview : ".expanding-stream-item .AdaptiveMedia > div, [data-card2-name$=\":periscope_broadcast\"] > div",
-			previewBefore : ".expanding-stream-item .AdaptiveMedia:before, [data-card2-name$=\":periscope_broadcast\"]:before",
+			preview : ".expanding-stream-item .AdaptiveMedia > div, [data-card2-name$=\":periscope_broadcast\"] > div, .js-macaw-cards-iframe-container > iframe, .QuoteTweet > div ",
+			previewBefore : ".expanding-stream-item .AdaptiveMedia:before, [data-card2-name$=\":periscope_broadcast\"]:before, .js-macaw-cards-iframe-container:before, .QuoteTweet:before ",
 			previewOpen : ".expanding-stream-item .opened-tweet .AdaptiveMedia > div, .opened-tweet [data-card2-name$=\":periscope_broadcast\"] > div",
 			previewOpenBefore : ".expanding-stream-item .opened-tweet .AdaptiveMedia:before, .opened-tweet [data-card2-name$=\":periscope_broadcast\"]:before",
 			previewBorder : '.AdaptiveMedia.is-square:not(.is-generic-video)',
