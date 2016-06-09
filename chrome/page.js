@@ -18,11 +18,11 @@
 
 		rules =
 		{
-			previewContainer: ".expanding-stream-item .AdaptiveMedia",
-			preview : ".expanding-stream-item .AdaptiveMedia > div, [data-card2-name$=\":periscope_broadcast\"] > div, [data-card2-name=\"summary_large_image\"] > div",
-			previewBefore : ".expanding-stream-item .AdaptiveMedia:before, [data-card2-name$=\":periscope_broadcast\"]:before, [data-card2-name=\"summary_large_image\"]:before",
-			previewOpen : ".expanding-stream-item .opened-tweet .AdaptiveMedia > div, .opened-tweet [data-card2-name$=\":periscope_broadcast\"] > div, .opened-tweet [data-card2-name=\"summary_large_image\"] > div",
-			previewOpenBefore : ".expanding-stream-item .opened-tweet .AdaptiveMedia:before, .opened-tweet [data-card2-name$=\":periscope_broadcast\"]:before, .opened-tweet [data-card2-name=\"summary_large_image\"]:before",
+			previewContainer: ".js-stream-tweet  .AdaptiveMedia",
+			preview : ".js-stream-tweet  .AdaptiveMedia > div, [data-card2-name$=\":periscope_broadcast\"] > div, [data-card2-name=\"summary_large_image\"] > div",
+			previewBefore : ".js-stream-tweet  .AdaptiveMedia:before, [data-card2-name$=\":periscope_broadcast\"]:before, [data-card2-name=\"summary_large_image\"]:before",
+			previewOpen : ".js-stream-tweet  .opened-tweet .AdaptiveMedia > div, .opened-tweet [data-card2-name$=\":periscope_broadcast\"] > div, .opened-tweet [data-card2-name=\"summary_large_image\"] > div",
+			previewOpenBefore : ".js-stream-tweet  .opened-tweet .AdaptiveMedia:before, .opened-tweet [data-card2-name$=\":periscope_broadcast\"]:before, .opened-tweet [data-card2-name=\"summary_large_image\"]:before",
 			previewBorder : '.AdaptiveMedia.is-square:not(.is-generic-video)',
 
 			promotedTrend: ".trends .promoted-trend",
