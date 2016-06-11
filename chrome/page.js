@@ -18,23 +18,23 @@
 
 		rules =
 		{
-			previewContainer: ".tweet .AdaptiveMedia",
+			previewContainer: '.tweet .AdaptiveMedia ',
 
-			preview : ".tweet .AdaptiveMedia > div, [data-card2-name$=\":periscope_broadcast\"] > div, [data-card2-name=\"summary_large_image\"] > div",
-			previewBefore : ".tweet .AdaptiveMedia:before, [data-card2-name$=\":periscope_broadcast\"]:before, [data-card2-name=\"summary_large_image\"]:before",
+			preview : '.tweet .AdaptiveMedia > div, [data-card2-name$=":periscope_broadcast"] > div, [data-card2-name="summary_large_image"] > div ',
+			previewBefore : '.tweet .AdaptiveMedia:before, [data-card2-name$=":periscope_broadcast"]:before, [data-card2-name="summary_large_image"]:before ',
 
-			previewOpen : ".tweet .opened-tweet .AdaptiveMedia > div, .opened-tweet [data-card2-name$=\":periscope_broadcast\"] > div, .opened-tweet [data-card2-name=\"summary_large_image\"] > div, .permalink-tweet [data-card2-name=\"summary_large_image\"] > div",
-			previewOpenBefore : ".tweet .opened-tweet .AdaptiveMedia:before, .opened-tweet [data-card2-name$=\":periscope_broadcast\"]:before, .opened-tweet [data-card2-name=\"summary_large_image\"]:before, .permalink-tweet [data-card2-name=\"summary_large_image\"]:before",
+			previewOpen : '.tweet .opened-tweet .AdaptiveMedia > div, .opened-tweet [data-card2-name$=":periscope_broadcast"] > div, .opened-tweet [data-card2-name="summary_large_image"] > div, .permalink-tweet [data-card2-name="summary_large_image"] > div, .permalink-tweet .AdaptiveMedia > div',
+			previewOpenBefore : '.tweet .opened-tweet .AdaptiveMedia:before, .opened-tweet [data-card2-name$=":periscope_broadcast"]:before, .opened-tweet [data-card2-name="summary_large_image"]:before, .permalink-tweet [data-card2-name="summary_large_image"]:before, .permalink-tweet .AdaptiveMedia:before',
 			
 			previewBorder : '.AdaptiveMedia.is-square:not(.is-generic-video)',
 
-			promotedTrend: ".trends .promoted-trend",
-			promotedTweet: ".js-stream-item .promoted-tweet",
-			suggestedTweet: ".suggested-tweet-stream-container",
-			promotedPeople: ".wtf-module .promoted-account",
-			wtfModule: ".wtf-module",
-			wtfCarousel: ".WtfLargeCarouselStreamItem",
-			trendsModule: ".trends"
+			promotedTrend: '.trends .promoted-trend ',
+			promotedTweet: '.js-stream-item .promoted-tweet ',
+			suggestedTweet: '.suggested-tweet-stream-container ',
+			promotedPeople: '.wtf-module .promoted-account ',
+			wtfModule: '.wtf-module ',
+			wtfCarousel: '.WtfLargeCarouselStreamItem ',
+			trendsModule: '.trends'
 		}
 	;
 
