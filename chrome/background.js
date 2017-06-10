@@ -5,29 +5,31 @@
 	/**
 	 * Will listen for any message sent from content scripts and options page.
 	 */
-	chrome.extension.onMessage.addListener(
-	function messageListener( request, sender, response )
+	chrome.extension.onMessage.addListener
+	(( request, sender, response ) =>
 	{
 		switch( request )
 		{
 			case 'displayIcon':
 				displayIcon( sender.tab );
-			return false;
+			break;
 
 			case 'optionsRequest':
-				response({
+				response
+				({
 					previews: typeof localStorage.previews === "undefined" || localStorage.previews === "true",
 					promoted: typeof localStorage.promoted === "undefined" || localStorage.promoted === "true",
 					wtfModule: typeof localStorage.wtfModule !== "undefined" && localStorage.wtfModule === "true",
 					trendsModule: typeof localStorage.trendsModule !== "undefined" && localStorage.trendsModule === "true"
 				});
-			return true;
+			break;
 
 			case 'optionsChanged':
-				chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+				chrome.tabs.query( {active: true, currentWindow: true}, (tabs) =>
+				{
 					chrome.tabs.sendMessage(tabs[0].id, "refresh");
 				});
-			return false;
+			break;
 		}
 
 		return false;

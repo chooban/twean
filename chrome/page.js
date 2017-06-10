@@ -2,7 +2,7 @@
 {
 	"use strict";
 
-	var
+	let
 		lastUrl,
 		style,
 		sheet,
@@ -18,8 +18,6 @@
 
 		rules =
 		{
-			previewContainer: '.tweet .AdaptiveMedia ',
-
 			preview : '.tweet .AdaptiveMedia > div, [data-card2-name$=":periscope_broadcast"] > div, [data-card2-name="summary_large_image"] > div ',
 			previewBefore : '.tweet .AdaptiveMedia:before, [data-card2-name$=":periscope_broadcast"]:before, [data-card2-name="summary_large_image"]:before ',
 
@@ -49,7 +47,7 @@
 		style = document.createElement("style");
 
 		//Injected by the extension even before the <head/> element exists
-		var html = document.getElementsByTagName("html")[0];
+		let html = document.getElementsByTagName("html")[0];
 		if( html.firstChild )
 			html.insertBefore( style, html.firstChild );
 		else
@@ -62,7 +60,6 @@
 		//image and video previews
 		if( previews )
 		{
-			sheet.addRule(rules.previewContainer, show );
 			sheet.addRule(rules.preview, hide );
 			sheet.addRule(rules.previewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
 			sheet.addRule(rules.previewOpen, show );
@@ -122,7 +119,7 @@
 	 */
 	function displayIcon()
 	{
-		if( lastUrl != document.location.href )
+		if( lastUrl !== document.location.href )
 			chrome.extension.sendMessage("displayIcon");
 
 		lastUrl = document.location.href;
@@ -130,7 +127,8 @@
 		setTimeout( displayIcon, 1000 );
 	}
 
-	chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
+	chrome.extension.onMessage.addListener( (request, sender, sendResponse) =>
+	{
 		if( request === "refresh" )
 			getOptions();
 	});

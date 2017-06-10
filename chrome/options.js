@@ -2,7 +2,7 @@
 {
 	"use strict";
 
-	var
+	let
 		previews = document.querySelector("#previews"),
 		promoted = document.querySelector("#promoted"),
 		wtfModule = document.querySelector("#wtfModule"),
@@ -22,7 +22,7 @@
 
 		//Run a CSS animation to let the user know changes had been taken into account.
 		document.body.classList.add("saved");
-		setTimeout(function(){document.body.classList.remove("saved");},500);
+		setTimeout(() => {document.body.classList.remove("saved");},500);
 
 		//Send a message to the background page to inform it options changed.
 		chrome.extension.sendMessage("optionsChanged");
