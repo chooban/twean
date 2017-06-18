@@ -61,7 +61,7 @@
 		if( previews )
 		{
 			sheet.addRule(rules.preview, hide );
-			sheet.addRule(rules.previewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
+			sheet.addRule(rules.previewBefore, 'position: absolute;	right: 13px; bottom:10px; margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
 			sheet.addRule(rules.previewOpen, show );
 			sheet.addRule(rules.previewOpen + ' .AdaptiveMedia-singlePhoto img', 'top:0 !important' ); //Fix for the opened image going over other tweets.
 			sheet.addRule(rules.previewOpenBefore, hide );
