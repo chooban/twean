@@ -23,7 +23,7 @@
 
 			previewOpen : '.tweet .opened-tweet .AdaptiveMedia > div, .opened-tweet [data-card2-name$=":periscope_broadcast"] > div, .opened-tweet [data-card2-name="summary_large_image"] > div, .permalink-tweet [data-card2-name="summary_large_image"] > div, .permalink-tweet .AdaptiveMedia > div',
 			previewOpenBefore : '.tweet .opened-tweet .AdaptiveMedia:before, .opened-tweet [data-card2-name$=":periscope_broadcast"]:before, .opened-tweet [data-card2-name="summary_large_image"]:before, .permalink-tweet [data-card2-name="summary_large_image"]:before, .permalink-tweet .AdaptiveMedia:before',
-			
+
 			previewBorder : '.AdaptiveMedia.is-square:not(.is-generic-video)',
 
 			promotedTrend: '.trends .promoted-trend ',
@@ -60,10 +60,10 @@
 		//image and video previews
 		if( previews )
 		{
-			sheet.addRule(rules.preview, hide );
-			sheet.addRule(rules.previewBefore, 'position: absolute;	right: 13px; bottom:10px; margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
+			sheet.addRule(rules.preview, hide + ' min-width:506px;');
+			sheet.addRule(rules.previewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
 			sheet.addRule(rules.previewOpen, show );
-			sheet.addRule(rules.previewOpen + ' .AdaptiveMedia-singlePhoto img', 'top:0 !important' ); //Fix for the opened image going over other tweets.
+			//sheet.addRule(rules.previewOpen + ' .AdaptiveMedia-singlePhoto img', 'top:0 !important' ); //Fix for the opened image going over other tweets.
 			sheet.addRule(rules.previewOpenBefore, hide );
 			sheet.addRule(rules.previewBorder, 'border:none !important');
 		}
