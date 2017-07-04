@@ -12,6 +12,7 @@
 		promoted = true,
 		wtfModule = false,
 		trendsModule = false,
+		liveModule = false,
 
 		show = 'display:initial !important;',
 		hide = 'display:none !important;',
@@ -32,7 +33,8 @@
 			promotedPeople: '.wtf-module .promoted-account ',
 			wtfModule: '.wtf-module ',
 			wtfCarousel: '.WtfLargeCarouselStreamItem ',
-			trendsModule: '.trends'
+			trendsModule: '.trends',
+			liveModule: '.LiveVideoHomePageModuleContainer'
 		}
 	;
 
@@ -63,7 +65,6 @@
 			sheet.addRule(rules.preview, hide );
 			sheet.addRule(rules.previewBefore, 'margin:0 0 0 0; color:grey; text-align:right; line-height:18px; text-decoration:underline; font-size:12px; content:"media"; display:block;' );
 			sheet.addRule(rules.previewOpen, show );
-			//sheet.addRule(rules.previewOpen + ' .AdaptiveMedia-singlePhoto img', 'top:0 !important' ); //Fix for the opened image going over other tweets.
 			sheet.addRule(rules.previewOpenBefore, hide );
 			sheet.addRule(rules.previewBorder, 'border:none !important; min-width:506px;');
 		}
@@ -87,6 +88,10 @@
 		//Trends module
 		if( trendsModule )
 			sheet.addRule(rules.trendsModule, hide);
+
+		//Live module
+		if( liveModule )
+			sheet.addRule(rules.liveModule, hide);
 	}
 
 	/**
@@ -105,10 +110,11 @@
 	{
 		chrome.extension.sendMessage("optionsRequest", function(response)
 		{
-			previews = response.previews;
-			promoted = response.promoted;
-			wtfModule = response.wtfModule;
-			trendsModule = response.trendsModule;
+			previews = !!response.previews;
+			promoted = !!response.promoted;
+			wtfModule = !!response.wtfModule;
+			trendsModule = !!response.trendsModule;
+			liveModule = !!response.liveModule;
 
 			refresh();
 		});

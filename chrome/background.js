@@ -17,10 +17,11 @@
 			case 'optionsRequest':
 				response
 				({
-					previews: typeof localStorage.previews === "undefined" || localStorage.previews === "true",
-					promoted: typeof localStorage.promoted === "undefined" || localStorage.promoted === "true",
-					wtfModule: typeof localStorage.wtfModule !== "undefined" && localStorage.wtfModule === "true",
-					trendsModule: typeof localStorage.trendsModule !== "undefined" && localStorage.trendsModule === "true"
+					previews: !!localStorage.previews,
+					promoted: !!localStorage.promoted,
+					wtfModule: !!localStorage.wtfModule,
+					trendsModule: !!localStorage.trendsModule,
+					liveModule: !!localStorage.liveModule
 				});
 			break;
 

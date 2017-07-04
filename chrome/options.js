@@ -6,7 +6,8 @@
 		previews = document.querySelector("#previews"),
 		promoted = document.querySelector("#promoted"),
 		wtfModule = document.querySelector("#wtfModule"),
-		trendsModule = document.querySelector("#trendsModule")
+		trendsModule = document.querySelector("#trendsModule"),
+		liveModule = document.querySelector("#liveModule")
 	;
 
 	/**
@@ -14,11 +15,12 @@
 	 */
 	function save()
 	{
-		//Will be stored as string
-		localStorage.previews = previews.checked;
-		localStorage.promoted = promoted.checked;
-		localStorage.wtfModule = wtfModule.checked;
-		localStorage.trendsModule = trendsModule.checked;
+		// Chrome localStorage only store strings so we use '' as false.
+		localStorage.previews = previews.checked ? '1' : '';
+		localStorage.promoted = promoted.checked ? '1' : '';
+		localStorage.wtfModule = wtfModule.checked ? '1' : '';
+		localStorage.trendsModule = trendsModule.checked ? '1' : '';
+		localStorage.liveModule = liveModule.checked ? '1' : '';
 
 		//Run a CSS animation to let the user know changes had been taken into account.
 		document.body.classList.add("saved");
@@ -37,24 +39,20 @@
 		promoted.removeAttribute("checked");
 		wtfModule.removeAttribute("checked");
 		trendsModule.removeAttribute("checked");
+		liveModule.removeAttribute("checked");
 
-		if( typeof localStorage.previews === "undefined" || localStorage.previews === "true" )
-			previews.checked = true;
-
-		if( typeof localStorage.promoted === "undefined" || localStorage.promoted === "true" )
-			promoted.checked = true;
-
-		if( typeof localStorage.wtfModule !== "undefined" && localStorage.wtfModule === "true" )
-			wtfModule.checked = true;
-
-		if( typeof localStorage.trendsModule !== "undefined" && localStorage.trendsModule === "true" )
-			trendsModule.checked = true;
+		previews.checked = !!localStorage.previews;
+		promoted.checked = !!localStorage.promoted;
+		wtfModule.checked = !!localStorage.wtfModule;
+		trendsModule.checked = !!localStorage.trendsModule;
+		liveModule.checked = !!localStorage.liveModule;
 	}
 
 	previews.addEventListener('change', save);
 	promoted.addEventListener('change', save);
 	wtfModule.addEventListener('change', save);
 	trendsModule.addEventListener('change', save);
+	liveModule.addEventListener('change', save);
 
 	document.addEventListener('DOMContentLoaded', restore);
 })();
