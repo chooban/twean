@@ -2,12 +2,13 @@
 {
 	"use strict";
 
-	let
+	const
 		previews = document.querySelector("#previews"),
 		promoted = document.querySelector("#promoted"),
 		wtfModule = document.querySelector("#wtfModule"),
 		trendsModule = document.querySelector("#trendsModule"),
-		liveModule = document.querySelector("#liveModule")
+		liveModule = document.querySelector("#liveModule"),
+		likedTweet = document.querySelector("#likedTweet")
 	;
 
 	/**
@@ -21,10 +22,11 @@
 		localStorage.wtfModule = wtfModule.checked ? '1' : '';
 		localStorage.trendsModule = trendsModule.checked ? '1' : '';
 		localStorage.liveModule = liveModule.checked ? '1' : '';
+		localStorage.likedTweet = likedTweet.checked ? '1' : '';
 
 		//Run a CSS animation to let the user know changes had been taken into account.
 		document.body.classList.add("saved");
-		setTimeout(() => {document.body.classList.remove("saved");},500);
+		setTimeout(() => document.body.classList.remove("saved"),500);
 
 		//Send a message to the background page to inform it options changed.
 		chrome.extension.sendMessage("optionsChanged");
@@ -40,12 +42,14 @@
 		wtfModule.removeAttribute("checked");
 		trendsModule.removeAttribute("checked");
 		liveModule.removeAttribute("checked");
+		likedTweet.removeAttribute("checked");
 
 		previews.checked = !!localStorage.previews;
 		promoted.checked = !!localStorage.promoted;
 		wtfModule.checked = !!localStorage.wtfModule;
 		trendsModule.checked = !!localStorage.trendsModule;
 		liveModule.checked = !!localStorage.liveModule;
+		likedTweet.checked = !!localStorage.likedTweet;
 	}
 
 	previews.addEventListener('change', save);
@@ -53,6 +57,7 @@
 	wtfModule.addEventListener('change', save);
 	trendsModule.addEventListener('change', save);
 	liveModule.addEventListener('change', save);
+	likedTweet.addEventListener('change', save);
 
 	document.addEventListener('DOMContentLoaded', restore);
 })();

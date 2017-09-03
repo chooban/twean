@@ -2,8 +2,8 @@
 	"manifest_version": 2,
 	"name": "Twean",
 	"short_name": "Twean",
-	"version": "1.9.0",
-	"description": "Hide image, video previews, promoted tweets from Twitter timeline. Can also hide «Who To Follow», «Trends» and «Video Live» modules.",
+	"version": "1.10.0",
+	"description": "Can hide images, videos, promoted or liked tweets from Twitter timeline. But also «Who To Follow», «Trends», «Video Live» modules.",
 	"author":"Tekool - www.tekool.net",
 	"homepage_url" :"https://chrome.google.com/webstore/detail/twean/mgdbopghpkjmgnhjfdnfeihnjgndjnbp",
 

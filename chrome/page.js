@@ -13,7 +13,10 @@
 		wtfModule = false,
 		trendsModule = false,
 		liveModule = false,
+		likedTweet = false
+	;
 
+	const
 		show = 'display:initial !important;',
 		hide = 'display:none !important;',
 
@@ -34,7 +37,8 @@
 			wtfModule: '.wtf-module ',
 			wtfCarousel: '.WtfLargeCarouselStreamItem ',
 			trendsModule: '.trends',
-			liveModule: '.LiveVideoHomePageModuleContainer'
+			liveModule: '.LiveVideoHomePageModuleContainer',
+			likedTweet: '.tweet[data-component-context="suggest_activity_tweet"]'
 		}
 	;
 
@@ -92,6 +96,10 @@
 		//Live module
 		if( liveModule )
 			sheet.addRule(rules.liveModule, hide);
+
+		//Liked tweets
+		if( likedTweet )
+			sheet.addRule(rules.likedTweet, hide);
 	}
 
 	/**
@@ -115,6 +123,7 @@
 			wtfModule = !!response.wtfModule;
 			trendsModule = !!response.trendsModule;
 			liveModule = !!response.liveModule;
+			likedTweet = !!response.likedTweet;
 
 			refresh();
 		});

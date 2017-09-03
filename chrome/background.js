@@ -21,7 +21,8 @@
 					promoted: !!localStorage.promoted,
 					wtfModule: !!localStorage.wtfModule,
 					trendsModule: !!localStorage.trendsModule,
-					liveModule: !!localStorage.liveModule
+					liveModule: !!localStorage.liveModule,
+					likedTweet: !!localStorage.likedTweet
 				});
 			break;
 
