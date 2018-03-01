@@ -9,6 +9,7 @@
 		trendsModule = document.querySelector("#trendsModule"),
 		liveModule = document.querySelector("#liveModule"),
 		likedTweet = document.querySelector("#likedTweet")
+		missedTweets = document.querySelector("#missedTweets")
 	;
 
 	/**
@@ -23,6 +24,7 @@
 		localStorage.trendsModule = trendsModule.checked ? '1' : '';
 		localStorage.liveModule = liveModule.checked ? '1' : '';
 		localStorage.likedTweet = likedTweet.checked ? '1' : '';
+		localStorage.missedTweets = missedTweets.checked ? '1' : '';
 
 		//Run a CSS animation to let the user know changes had been taken into account.
 		document.body.classList.add("saved");
@@ -43,6 +45,7 @@
 		trendsModule.removeAttribute("checked");
 		liveModule.removeAttribute("checked");
 		likedTweet.removeAttribute("checked");
+		missedTweets.removeAttribute("checked");
 
 		previews.checked = !!localStorage.previews;
 		promoted.checked = !!localStorage.promoted;
@@ -50,6 +53,7 @@
 		trendsModule.checked = !!localStorage.trendsModule;
 		liveModule.checked = !!localStorage.liveModule;
 		likedTweet.checked = !!localStorage.likedTweet;
+    missedTweets.checked = !!localStorage.missedTweets;
 	}
 
 	previews.addEventListener('change', save);
@@ -58,6 +62,7 @@
 	trendsModule.addEventListener('change', save);
 	liveModule.addEventListener('change', save);
 	likedTweet.addEventListener('change', save);
+  missedTweets.addEventListener('change', save);
 
 	document.addEventListener('DOMContentLoaded', restore);
 })();
